@@ -1,0 +1,58 @@
+[
+  {
+    "name":"Ahmed Nabeel",
+    "img":"images/team/nabeel.png",
+    "username":"Ahmed NabeelM",
+    "location":"Egypt",
+    "position":"Lead Support & Public relations"
+  },
+  {
+    "name":"Anthony King",
+    "img":"https://github.com/cybojenix.png",
+    "username":"cybojenix",
+    "location":"UK",
+    "position":"Developer"
+  },
+  {
+    "name":"Cordell",
+    "img":"images/team/cordell12.png",
+    "username":"cordell12",
+    "location":"USA",
+    "position":"Samsung Galaxy Note 3 and Google Nexus 6 Maintainer"
+  },
+  {
+    "name":"Daniel Koman",
+    "img":"images/team/dankoman.png",
+    "username":"dankoman",
+    "location":"USA",
+    "position":"Gapps Maintainer, Themer and Developer"
+  },
+  {
+    "name":"Griffin Millender",
+    "img":"images/team/gmillz.png",
+    "username":"gmillz",
+    "location":"USA",
+    "position":"Developer"
+  },
+  {
+    "name":"Josue Rivera",
+    "img":"images/team/prbassplayer.png",
+    "username":"prbassplayer",
+    "location":"Puerto Rico",
+    "position":"Development Coordinator"
+  },
+  {
+    "name":"Nicholas Flintham",
+    "img":"https://github.com/Flinny.png",
+    "username":"Flinny",
+    "location":"United Kingdom",
+    "position":"Google Nexus 9 and HTC One Family Maintainer"
+  },
+  {
+    "name":"Nick Lovell",
+    "img":"https://github.com/nicklovell23.png",
+    "username":"nicklovell23",
+    "location":"USA",
+    "position":"Release Manager, Samsung Galaxy S4 (jflte) and Samsung Galaxy Note 10.1 (i925) Maintainer"
+  }
+]
