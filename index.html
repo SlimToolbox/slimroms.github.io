@@ -12,6 +12,16 @@
     .slim-header {
       background: transparent url('static/images/toolbar.png') center / cover;
     }
+    .slim-logo {
+      height: 50px;
+      width: 250px;
+      position: relative;
+      background: url('static/images/slimroms.png') center/cover;
+    }
+    .slim-logo-sm {
+      width: 200px;
+      height: 40px;
+    }
   </style>
 </head>
 <body>
@@ -20,7 +30,7 @@
     <!-- Top row, always visible -->
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title">SlimRoms</span>
+      <span class="mdl-layout-title slim-logo"></span>
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
@@ -39,7 +49,7 @@
     </div>
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">SlimRoms</span>
+    <span class="mdl-layout-title slim-logo slim-logo-sm"></span>
     <nav class="mdl-navigation">
       <a class="mdl-navigation__link" href="">Link</a>
       <a class="mdl-navigation__link" href="">Link</a>
