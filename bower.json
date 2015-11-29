@@ -1,0 +1,21 @@
+{
+  "name": "slimroms.github.io",
+  "homepage": "https://github.com/SlimRoms/slimroms.github.io",
+  "authors": [
+    "Anthony King <anthonydking@slimroms.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "GPL-3.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "~1.0.6"
+  }
+}
