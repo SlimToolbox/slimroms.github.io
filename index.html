@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <base href="/slimroms.github.io/">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SlimRoms</title>
-
-  <link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+  <!--[if lte IE 9 ]>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5-history-api/4.2.2/history.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="bower_components/material-design-lite/material.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
     .slim-header {
-      background: transparent url('static/images/toolbar.png') center / cover;
+      background-color: black;
+      transition: display;
     }
     .slim-logo {
       height: 50px;
@@ -25,9 +29,8 @@
   </style>
 </head>
 <body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-  <header class="slim-header mdl-layout__header mdl-layout__header--waterfall">
-    <!-- Top row, always visible -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header slim-header mdl-layout--small-screen-only">
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title slim-logo"></span>
@@ -36,31 +39,66 @@
                   mdl-textfield--floating-label mdl-textfield--align-right">
       </div>
     </div>
-    <!-- Bottom row, not visible on scroll -->
-    <div class="mdl-layout__header-row">
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation -->
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-        <a class="mdl-navigation__link" href="">Link</a>
-      </nav>
-    </div>
   </header>
   <div class="mdl-layout__drawer">
     <span class="mdl-layout-title slim-logo slim-logo-sm"></span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="/blog/" data-is="riot-anchor">
+        Home
+        <span>
+          <span></span>
+        </span>
+      </a>
+      <a class="mdl-navigation__link" href="/" data-is="riot-anchor">Link</a>
+      <a class="mdl-navigation__link" href="/" data-is="riot-anchor">Link</a>
+      <a class="mdl-navigation__link" href="/" data-is="riot-anchor">Link</a>
     </nav>
   </div>
   <main class="mdl-layout__content">
-    <div class="page-content" style="height: 2000px;"><!-- Your content goes here --></div>
+    <div class="page-content">
+      <slim-blog class="page" route-path="/"></slim-blog>
+    </div>
   </main>
 </div>
-  <script src="bower_components/material-design-lite/material.min.js"></script>
+<script src="bower_components/material-design-lite/material.min.js"></script>
+<script src="bower_components/riot/riot+compiler.min.js"></script>
+<script src="bower_components/marked/marked.min.js"></script>
+<script src="static/utils.js"></script>
+<script src="tags/slim-marked/slim-marked.tag" type="riot/tag"></script>
+<script src="tags/slim-blog/slim-blog.tag" type="riot/tag"></script>
+<script src="tags/riot-anchor/riot-anchor.tag.html" type="riot/tag"></script>
+<script src="mixins/page-router.js"></script>
+<script>
+  var route_to_page = function() {
+    var current_page = null;
+    return function(el) {
+      current_page && current_page.hideRoute();
+      current_page = el;
+      current_page.displayRoute();
+      console.log(current_page);
+    }
+  }();
+</script>
+<script>
+  /* configure the router */
+  riot.route.base(document.head.querySelector('base').getAttribute('href').replace(/\/$/, ''));
+
+  /* mixins */
+  riot.mixin('page-router', pageRouter);
+
+  function upgrade_site() {
+    riot.mount('riot-anchor');
+    riot.route.start();
+    riot.route(function() { riot.route('/'); });
+    riot.route.exec();
+  }
+
+  riot.compile(function() {
+    /* DEV ONLY: browser compiling requires this */
+    riot.mount('*');
+    upgrade_site();
+  });
+  // upgrade_site();
+</script>
 </body>
 </html>

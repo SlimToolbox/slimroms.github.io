@@ -1,0 +1,14 @@
+<riot-anchor>
+  <yield/>
+
+  <script>
+
+    this.on('mount', function() {
+      var that = this;
+      this.root.addEventListener('click', function(e) {
+        e.preventDefault();
+        riot.route('/' + that.root.getAttribute('href'));
+      }, false);
+    });
+  </script>
+</riot-anchor>
